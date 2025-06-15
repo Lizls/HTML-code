@@ -1,0 +1,36 @@
+h1{
+    font-family: Tahoma;
+    font-size: 2.5em;
+    color:red;
+}
+
+h1.big{
+    font-family: Tahoma;
+    font-size: 2.5em;
+    color:green;
+    text-decoration: underline;
+}
+
+h1.medium{
+    font-family: Tahoma;
+    font-size: 2.4em;
+    color:pink;
+}
+
+h2{
+    font-family: Copperplate, "Copperplate Gothic";
+    font-size: 2.25em;
+    color:orange
+}
+
+h3{
+    font-family: Tahoma;
+    font-size: 2em;
+    color:#000080
+}
+
+h4{
+    font-family: "Times New Roman";
+    font-size: 1.5em;
+    color: #013220;
+}
