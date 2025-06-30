@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    html, body {
+      background-color: #f4f7f9;
+      min-height: 100vh;
+    }
+    .section-content {
+      display: none;
+    }
+    .section-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar is-success" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-weight-bold is-size-3"> CV</a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+       data-target="navbarMenu" onclick="toggleBurger(this)">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" onclick="showSection('home')">Home</a>
+      <a class="navbar-item" onclick="showSection('skills')">Skill</a>
+      <a class="navbar-item" onclick="showSection('projects')">Project</a>
+      <a class="navbar-item" onclick="showSection('education')">Education</a>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+
+    <div id="home" class="section-content active">  
+      <h1 class="title is-3">Profile</h1>
+      <figure class="image is-128x128 mb-4">
+        <img class="is-rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8VbvTvQFYrD7AYI3IKB8rdP-vvYm2LkBl-w&s" alt="Profile Photo">
+      </figure>
+      <h2 class="title is-4">Loh Li Shi</h2>
+      <p><strong>Email: </strong>st_li-shi.loh@vitrox.edu.com</p>
+      <p><strong>Phone Number: </strong>0123456789</p>
+      <p>Student</p>
+    </div>
+
+    <div id="skills" class="section-content">
+      <h2 class="title is-4">Skill</h2>
+      <ul>
+        <li>Database</li>
+        <li>CSS</li>
+        <li>Cybersecurity</li>
+        <li>HTML</li>
+        <li>MySQL</li>
+      </ul>
+    </div>
+
+    <div id="projects" class="section-content">
+      <h2 class="title is-4">Project</h2>
+      <p><strong>Smart Attendance System</strong></p>
+      <p><strong>Image processing</strong> – Convert colored image to grayscale image</p>
+    </div>
+
+    <div id="education" class="section-content">
+      <h2 class="title is-4">Education</h2>
+      <p><strong>ViTrox College</strong></p>
+      <p>Diploma in Computer Science (2022–2025)</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section-content').forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+
+  function toggleBurger(burger) {
+    burger.classList.toggle('is-active');
+    document.getElementById('navbarMenu').classList.toggle('is-active');
+  }
+</script>
+</body>
+</html>
