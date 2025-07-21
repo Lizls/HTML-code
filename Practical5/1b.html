@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<h2>Grade Calculator</h2>
+
+<label for="score1">Enter Score 1: </label>
+<input type="number" id="score1">
+
+<label for="score2">Enter Score 2: </label>
+<input type="number" id="score2">
+
+
+<label for="score3">Enter Score 3: </label>
+<input type="number" id="score3">
+
+<button type="button" id="button">Calculate</button>
+
+
+<script>
+
+let jsbutton = document.getElementById("button");
+jsbutton.addEventListener("click",calculating);
+
+function calculating(){
+let score1 = parseInt(document.getElementById("score1").value);
+let score2 = parseInt(document.getElementById("score2").value);
+let score3 = parseInt(document.getElementById("score3").value);
+
+
+let avg = (score1+score2+score3)/3;
+let grade = "";
+
+if (avg>=90){grade="A";}
+else if (avg>=80){grade="B";}
+else if (avg>=70){grade="C";}
+else if (avg>=60){grade="D";}
+else {grade="F";}
+
+alert("Average score: "+avg.toFixed(2));
+alert("Grade: "+grade);
+}
+</script>
+
+</body>
+</html>

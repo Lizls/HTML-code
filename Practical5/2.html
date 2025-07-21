@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Password Validation</title>
+</head>
+
+<body>
+<label for="pw">Enter password</label>
+<input type="password" id="pw">
+
+<button type="button" id="htmlbutton">Submit</button>
+
+<p id="msg"></p>
+
+<script>
+const messageDisplay = document.getElementById("msg");
+const jsbt = document.getElementById("htmlbutton");
+
+jsbt.addEventListener("click", function() {
+const jspw = document.getElementById("pw").value;
+
+if(validatePassword(jspw))
+{messageDisplay.textContent="Correct";}
+else
+{messageDisplay.textContent="Wrong";}
+
+});
+
+function validatePassword(jspw){
+
+if (jspw.length < 8)
+{return false;}
+
+const hasUppercase = /[A-Z]/.test(jspw);
+if (!hasUppercase) 
+{return false;}
+
+const hasDigit = /\d/.test(jspw);
+if (!hasDigit) 
+{return false;}
+
+const hasSpecialChar = /[!@#$%^&*]/.test(jspw);
+if (!hasSpecialChar)
+{return false;}
+
+return true;
+}
+
+
+</script>
+
+</body>
+</html>

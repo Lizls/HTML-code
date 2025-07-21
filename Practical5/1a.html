@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<script>
+let score1 = parseInt(prompt("Enter score 1: "));
+let score2 = parseInt(prompt("Enter score 2: "));
+let score3 = parseInt(prompt("Enter score 3: "));
+
+let avg = (score1+score2+score3)/3;
+let grade = "";
+
+if (avg>=90){grade="A";}
+else if (avg>=80){grade="B";}
+else if (avg>=70){grade="C";}
+else if (avg>=60){grade="D";}
+else if (avg<60){grade="F";}
+
+alert("Average score: "+avg.toFixed(2));
+alert("Grade: "+grade);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="demo"></p></p>
+        <input type="text" id="num1" required placeholder="Enter Number 1" />
+        <input type="text" id="num2" required placeholder="Enter Number 2" />
+        <select id="operator">
+            <option value="add">ADD</option>
+            <option value="substract">SUBSTRACT</option>
+            <option value="multiple">MULTIPLE</option>
+            <option value="divide">DIVIDE</option>
+        </select>
+
+
+        <button onclick="sayhi()">Additional</button>
+   <script>
+        function sayhi(){
+        var num1=document.getElementById("num1").value;
+        var num2=document.getElementById("num1").value;
+
+        var opt=document.getElementById("opt").value
+
+        switch(operator){
+            case 'add':
+            var total=parseInt(num1)+parseInt(num2);
+            break;
+
+            case 'substract':
+            var total=parseInt(num1)-parseInt(num2);
+            break;
+
+            case 'multiple':
+            var total=parseInt(num1)*parseInt(num2);
+            break;
+
+            case 'divide':
+            var total=parseInt(num1)/parseInt(num2);
+            break;
+        }
+
+        document.getElementById("demo").innerHTML=("The total is "+total);
+
+        //document.writeln("The total is "+total); //clear web and show answer
+    }
+   </script>     
+
+
+
+    </body>
+
+</html>

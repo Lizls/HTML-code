@@ -1,0 +1,24 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="text" id="name" placeholder="Enter your name" required/>
+        <button onclick="sayhi()">Click Me</button>
+   <script>
+        function sayhi(){
+            var name=document.getElementById("name").value
+        if(name==""){
+            alert("pls enter name");
+            return;
+        }  else{
+            alert("Hello, "+name+"!");
+        }
+    }
+   </script>     
+
+
+
+    </body>
+
+</html>
