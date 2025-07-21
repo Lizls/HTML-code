@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Western Food Menu Ordering Web Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(145deg, #fffde7, #ffe0b2);
+    padding: 40px 20px;
+    margin: 0;
+    color: #4e342e;
+    min-height: 100vh;
+    background-size: 400% 400%;
+    animation: bgShift 15s ease infinite;
+}
+
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.shop-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: linear-gradient(to right, #ffb74d, #f57c00);
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 152, 0, 0.3);
+}
+
+.shop-header h1 {
+    font-size: 36px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px #bf360c;
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    background: #fff8e1;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(255, 138, 101, 0.3);
+    border: 4px dotted #ffe082;
+}
+
+h2 {
+    font-size: 24px;
+    color: #f57f17;
+    border-left: 6px solid #ffb300;
+    padding-left: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #6d4c41;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-top: 8px;
+    font-size: 16px;
+    border: 2px dashed #ffe082;
+    border-radius: 15px;
+    background: #fffbe9;
+    color: #3e2723;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ffca28;
+    box-shadow: 0 0 10px rgba(255, 213, 79, 0.4);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    display: inline-block;
+    background: linear-gradient(to right, #ff7043, #ff5722);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 30px;
+    margin-top: 30px;
+    margin-right: 10px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.4);
+    transform: scale(1);
+}
+
+button:hover {
+    transform: scale(1.08) rotate(-1deg);
+    box-shadow: 0 12px 28px rgba(255, 87, 34, 0.5);
+}
+
+#datetime, #total {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    background-color: #fff3e0;
+    padding: 12px;
+    border-left: 6px solid #ffb300;
+    border-radius: 15px;
+    color: #5d4037;
+    box-shadow: 0 4px 8px rgba(255, 202, 40, 0.2);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px 20px;
+    }
+
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+</style>
+
+
+
+
+</head>
+<body onload="displayDateTime()">
+
+    <header class="shop-header">
+    <h1>Liz's Western Delights</h1>
+</header>
+
+    <div class="container">
+
+        <p id="datetime"></p>
+
+        <h2>Customer Information Form</h2>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+
+        <label for="tel">Phone Number:</label>
+        <input type="tel" id="tel" required>
+
+        <h2>Menu Selection</h2>
+
+        <label for="meals">Meals:</label>
+        <select id="meals">
+            <option value="0">--Select Meal--</option>
+            <option value="19.90">Fish and Chips — RM19.90</option>
+            <option value="25.50">Black Pepper Chicken — RM25.50</option>
+            <option value="12.90">Spaghetti — RM12.90</option>
+            <option value="9.90">Chicken Burger — RM9.90</option>
+        </select>
+
+        <label for="nummeals">Amount of Meals:</label>
+        <input type="number" id="nummeals" min="0">
+
+        <label for="drinks">Drinks:</label>
+        <select id="drinks">
+            <option value="0">--Select Drink--</option>
+            <option value="4.50">Coke — RM4.50</option>
+            <option value="3.00">Coffee — RM3.00</option>
+            <option value="4.00">Ice Cream — RM4.00</option>
+            <option value="3.00">Lemon Tea — RM3.00</option>
+        </select>
+
+        <label for="numdrinks">Amount of Drinks:</label>
+        <input type="number" id="numdrinks" min="0">
+
+        <label for="notes">Additional Info:</label>
+        <textarea id="notes" rows="4" placeholder="Delivery notes or special requests..."></textarea>
+        
+        <p id="total"></p>
+
+        <button onclick="calculate()">Submit</button>
+        <button onclick="resetForm()">Reset</button>
+
+        
+    </div>
+
+    <script>
+        function displayDateTime() {
+            setInterval(() => {
+                const now = new Date();
+                document.getElementById('datetime').innerText = 'Current Date and Time: ' + now.toLocaleString();
+            }, 1000);
+        }
+
+        function calculate() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const tel = document.getElementById('tel').value.trim();
+
+            const mealPrice = parseFloat(document.getElementById('meals').value);
+            const mealQty = parseInt(document.getElementById('nummeals').value) || 0;
+
+            const drinkPrice = parseFloat(document.getElementById('drinks').value);
+            const drinkQty = parseInt(document.getElementById('numdrinks').value) || 0;
+
+            const notes = document.getElementById('notes').value.trim();
+
+            const phoneRegex = /^(?:\+?60|0)[0-9]{9,10}$/;
+            if (!phoneRegex.test(tel)) {
+                alert("Invalid phone number format. Please enter a valid Malaysian number (e.g., 0123456789 or +60123456789).");
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert("Invalid email format. Please enter a valid email (e.g., liz@example.com).");
+                    return;
+                }
+
+
+            if (!name || !email || !tel || isNaN(mealPrice) || isNaN(drinkPrice)) {
+                alert("Please fill in all required fields and select items.");
+                return;
+            }
+
+            const total = (mealPrice * mealQty) + (drinkPrice * drinkQty);
+            displayDateTime();
+
+            document.getElementById('total').innerText = `Total Price: RM${total.toFixed(2)}`;
+
+            alert(
+                `Order Summary:\n` +
+                `Name: ${name}\nEmail: ${email}\nPhone: ${tel}\n` +
+                `Meal: ${mealQty} × RM${mealPrice.toFixed(2)}\n` +
+                `Drink: ${drinkQty} × RM${drinkPrice.toFixed(2)}\n` +
+                `Total: RM${total.toFixed(2)}\n` +
+                `Notes: ${notes || 'None'}\n\nThank you for your order!`
+            );
+        }
+
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('tel').value = '';
+            document.getElementById('meals').value = '0';
+            document.getElementById('nummeals').value = '';
+            document.getElementById('drinks').value = '0';
+            document.getElementById('numdrinks').value = '';
+            document.getElementById('notes').value = '';
+            document.getElementById('datetime').innerText = '';
+            document.getElementById('total').innerText = '';
+        }
+    </script>
+</body>
+</html>
